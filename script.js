@@ -1,6 +1,7 @@
 let qrtext = document.getElementById("qrtext");
 let qrcode = document.getElementById("qrcode");
 let download_code = document.getElementById("download");
+let qr_size = document.getElementById("qr_size");
 download_code.style.display = "none";
 
 const button_generate = document.getElementById("generate");
@@ -17,12 +18,13 @@ function generate() {
     // that QRCode class will create an elem <canva> and <img> inside the element with id = "qrcode" ; 
     new QRCode("qrcode", {
     text : qrtext.value,
-    width : 150,
-    height : 150
+    width : +qr_size.value,
+    height : +qr_size.value
     });
     }
 
 }
+
 
 function download() {
     const img = document.querySelector("#qrcode img");

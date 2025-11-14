@@ -28,7 +28,7 @@ body{
     text-align: center;
 }
 
-#qrtext , #generate , #qr_print , #download{
+#qrtext , #generate , #qr_print , #download , #qr_size{
     padding: 10px;
     border-radius: 5px;
     font-weight: 500;
