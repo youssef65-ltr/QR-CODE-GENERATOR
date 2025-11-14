@@ -11,11 +11,12 @@
     <div id="mybox">
         <label for="qrtext" id="labeltest">enter your text or url </label>
         <input type="text" id="qrtext" name="qrtext">
-        <div id="qrcode">
-            <img src="" id="qrimage">
-        </div>
-        <button onclick="generate()" id="generate">generate</button>
+        <div id="qrcode"></div>
+        <button id="generate">generate</button>
+        <button id="download">download</button>
     </div>
-    <script src="script.js"></script>
+<!-- Include QRCode library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

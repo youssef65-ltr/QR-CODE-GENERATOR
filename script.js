@@ -1,25 +1,57 @@
 let qrtext = document.getElementById("qrtext");
 let qrcode = document.getElementById("qrcode");
-let qrimage = document.getElementById("qrimage");
-let qr_print = document.getElementById("qr_print");
-qr_print.style.display = "none";
+let download_code = document.getElementById("download");
+download_code.style.display = "none";
+
+const button_generate = document.getElementById("generate");
+const button_download = document.getElementById("download");
+
+button_generate.addEventListener("click" , generate);
+button_download.addEventListener("click" , download);
+
+
+
 function generate() {
-    if (qrtext.value.trim() !== ""){
-        qrimage.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrtext.value;
-        qr_print.style.display = "";
-    }else{
-        qrimage.src = ""
-        qrtext.className = "error"
-        setTimeout(() => {
-            qrtext.className = ""
-        }, 1000);
-        qr_print.style.display = "none";
+    if (validation() ) {
+    qrcode.innerHTML = null ;
+    // that QRCode class will create an elem <canva> and <img> inside the element with id = "qrcode" ; 
+    new QRCode("qrcode", {
+    text : qrtext.value,
+    width : 150,
+    height : 150
+    });
+    }
+
+}
+
+function download() {
+    const img = document.querySelector("#qrcode img");
+    // to download anyfile you need href of this file and add attribut download="givea prefer name to download file"
+    if (validation()){
+        let a = document.createElement("a");
+        a.href = img.src ;
+        a.download = "qrcode.png" ;
+        a.click()
     }
 }
 
-function qr_print_fun(){
-    open()
-}
 
+function validation() {
+    if (qrtext.value.trim() === "") {
+        // give an error anmation
+         qrtext.className = "error"
+        setTimeout(() => {
+            qrtext.className = ""
+        }, 1000);
+        // remove button download
+        download_code.style.display = "none";
+        // remove image
+        qrcode.innerHTML = null ;
+        return false ;
+    }else {
+        download_code.style.display = "";
+        return true ;
+    }
+}
 
 

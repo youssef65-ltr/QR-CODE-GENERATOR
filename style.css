@@ -28,7 +28,7 @@ body{
     text-align: center;
 }
 
-#qrtext , #generate , #qr_print{
+#qrtext , #generate , #qr_print , #download{
     padding: 10px;
     border-radius: 5px;
     font-weight: 500;
@@ -37,16 +37,18 @@ body{
 #qrtext {
     background-color: #ababab;
 }
-#generate{
-    background-color:#0064e7;
+#generate , #download{
+    background-color:#004db2;
     border: none;
     text-transform: uppercase;
+    box-shadow: 2px 2px 1px #8d8d8dca;
 }
-#generate:hover{
+#generate:hover , #download:hover{
     background-color: #0064e7ca;
 }
-#generate:active{
+#generate:active , #download:active{
     background-color: #0064e7;
+    box-shadow: none ;
 }
 
 #qrcode{
@@ -67,13 +69,13 @@ body{
     100% {transform: translate(0px);}
 }
 
-#qr_print{
+#download_code{
     background-color: darkorange;
     text-transform: uppercase;  
 }
-#qr_print:hover{
+#download_code:hover{
     background-color: #f89419;
 }
-#qr_print:active{
+#download_code:active{
     background-color: #ff8c00;
 }
